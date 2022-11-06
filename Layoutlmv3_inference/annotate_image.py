@@ -47,4 +47,4 @@ def annotate_image(image_path, annotation_object):
 
   image_name = os.path.basename(image_path)
   image_name = image_name[:image_name.find('.')]
-  img.save(f'/content/{image_name}_inference.jpg')
+  img.save(f'/kaggle/working/{image_name}_inference.jpg')

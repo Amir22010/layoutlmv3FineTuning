@@ -31,7 +31,7 @@ def prepare_examples(examples):
 
 def get_zip_dir_name():
     try:
-        os.chdir('/content/data')
+        os.chdir('/kaggle/working/data')
         dir_list = os.listdir()
         any_file_name = dir_list[0]
         zip_dir_name = any_file_name[:any_file_name.find('\\')]
@@ -96,9 +96,9 @@ if __name__ == '__main__':
         bboxes.append([box.split('\t')[1].replace('\n', '')
                       for box in files['train_box'][rows[0]:rows[-1]+1]])
         if zip_dir_name:
-            image_path.append(f"/content/data/{zip_dir_name}\\{image}")
+            image_path.append(f"/kaggle/working/data/{zip_dir_name}\\{image}")
         else:
-            image_path.append(f"/content/data/{image}")
+            image_path.append(f"/kaggle/working/data/{image}")
 
     labels = list(set([tag for doc_tag in ner_tags for tag in doc_tag]))
     id2label = {v: k for v, k in enumerate(labels)}
